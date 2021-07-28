@@ -1,0 +1,20 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo $PATH
+      #- choco install -y python3 --version=3.7.5 --allow-downgrade
+      #- powershell.exe scripts/build/build_node/Platform/Windows/install_utiltools.ps1
+      - powershell.exe scripts/build/build_node/Platform/Windows/install_vsbuildtools.ps1
+      - choco install cmake -y --installargs 'ADD_CMAKE_TO_PATH=System'
+  pre-build:
+    commands:
+      #- python scripts/build/bootstrap/incremental_build_util.py --action mount --repository_name shirangj/o3de --project O3DE --pipeline default --branch build_o3de --platform Android --build_type gradle
+      - set "PATH=$PATH;C:/Program Files/CMake/bin"
+      - refreshenv
+      - echo $PATH
+      - python/get_python.bat
+  build:
+    commands:
+      - python/python.cmd -u scripts\build\ci_build.py --platform Windows --type profile_vs2019
