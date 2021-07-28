@@ -6,10 +6,9 @@ SPDX-License-Identifier: Apache-2.0 OR MIT
 #>
 
 choco install visualstudio2019buildtools --version=16.8.2 --package-parameters "--config .\vs2019bt.vsconfig" -y
-choco install visualstudio2017buildtools --version=15.9.29 --package-parameters "--config .\vs2017bt.vsconfig" -y
 
-Write-Host "Installing downstream dependancies"
-choco install -y dotnet3.5 
+#Write-Host "Installing downstream dependancies"
+#choco install -y dotnet3.5
 
 # This is a custom install of the Win10 SDK debugger which was not included in VS2019/2017. This resolves an issue where the older DbgHelp library was being referenced from C:\Windows\System32\
 # More details here: https://docs.microsoft.com/en-us/windows/win32/debug/calling-the-dbghelp-library
