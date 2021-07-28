@@ -5,7 +5,8 @@ For complete copyright and license terms please see the LICENSE at the root of t
 SPDX-License-Identifier: Apache-2.0 OR MIT
 #>
 
-choco install visualstudio2019buildtools --version=16.8.2 --package-parameters "--config .\vs2019bt.vsconfig" -y
+#choco install visualstudio2019buildtools --version=16.8.2 --package-parameters "--config .\vs2019bt.vsconfig" -y
+choco install visualstudio2019buildtools --version=16.8.2 -y
 
 #Write-Host "Installing downstream dependancies"
 #choco install -y dotnet3.5
